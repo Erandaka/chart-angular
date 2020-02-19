@@ -1,0 +1,23 @@
+
+
+<div class="container">
+  <div class="row">
+    <div>
+      <select (change)="drawChart($event.target.value)">
+        <option *ngFor="let year of years" [value]="year">{{year}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div  style="display: block" *ngIf="startChart">
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+      [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+  </div>
+
+  <!-- <button (click)="randomize()">Update</button> -->
+</div>
+
+<!--<label><strong>Download by CSV</strong> </label>
+  &nbsp;<angular2csv [data]="data" filename="test.csv" [options]="options"></angular2csv>
+   </div> 
+</div>-->

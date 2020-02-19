@@ -1,0 +1,22 @@
+<h1>Timing Card</h1>
+<br><br>
+<div class="row">
+  <div class="col-md-6">
+    <div>
+      <div style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+      <!-- <button (click)="randomize()">Update</button> -->
+    </div>
+  </div>
+</div>
+
+<label><strong><font color="green" (click)='csv()'>Download by CSV</font></strong> </label>
+<angular2csv [data]="timeCardDetails" filename="Timing-Card.csv" [options]="options"></angular2csv>

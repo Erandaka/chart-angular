@@ -1,0 +1,41 @@
+<div class="container">
+<form>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Order Id</label>
+    <input [(ngModel)]="form.oid" name="oid" type="text" class="form-control" id="formGroupExampleInput" placeholder="Order Id input">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Item Id</label>
+    <input [(ngModel)]="form.iId" name="iId" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Item Id input">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Variance</label>
+    <input [(ngModel)]="form.variance" name="variance" type="text" class="form-control" id="formGroupExampleInput4" placeholder="Variance input" >
+  </div>
+  <input class="btn btn-primary" type="submit" value="Submit" (click)="submit()">-
+
+
+
+  
+</form>
+
+
+<table class="table" *ngIf="formActive">
+  <thead>
+    <tr>
+      <th scope="col">Order Id</th>
+      <th scope="col">Customer Id</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Varience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of datas">
+      <th scope="row">{{data.oid}}</th>
+      <td>{{data.cId}}</td>
+      <td>{{data.iId}}</td>
+      <td>{{data.variance}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

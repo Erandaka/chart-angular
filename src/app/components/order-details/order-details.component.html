@@ -1,0 +1,96 @@
+<!-- <p>
+  order-details works!
+</p>
+<h1 class="aa">Daily Planning</h1>
+<button (click)="add()">ADD</button>
+<div *ngIf="isAdd">
+
+  <h3>Add Product</h3>
+  <form [formGroup]="planningForm" (ngSubmit)="save()">
+    <table>
+
+      <tr>
+        <td>D id</td>
+        <td>
+          <input type="text" formControlName="dp_id" required="required" />
+        </td>
+      </tr>
+      <tr>
+        <td>Quantity</td>
+        <td>
+          <input type="number" min="0" formControlName="quantity" />
+        </td>
+      </tr>
+      <tr>
+        <td>E Count</td>
+        <td>
+          <input type="number" min="0" formControlName="expectedCount" />
+        </td>
+      </tr>
+      <tr>
+        <td>A Count</td>
+        <td>
+          <input type="number" min="0" formControlName="actualCount" />
+        </td>
+      </tr>
+      <tr>
+        <td>No of Alerts</td>
+        <td>
+          <input type="number" min="0" formControlName="noOfAlerts" />
+        </td>
+      </tr>
+      <tr>
+        <td>Mismatch</td>
+        <td>
+          <input type="number" min="0" formControlName="mismatch" />
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>
+          <input type="submit" value="Save" />
+        </td>
+      </tr>
+    </table>
+  </form>
+
+
+</div>
+
+<h3>Daily Planning List</h3>
+<div>
+<table border="1">
+  <tr>
+    <th>dp_id</th>
+    <th>quantity</th>
+    <th>expectedCount</th>
+    <th>actualCount</th>
+    <th>mismatch</th>
+    <th>noOfAlerts</th>
+
+  </tr>
+  <tr *ngFor="let planningDetail of planningDetail">
+    <td>{{planningDetail.dp_id}}</td>
+    <td>{{planningDetail.quantity}}</td>
+    <td>{{planningDetail.expectedCount}}</td>
+    <td>{{planningDetail.actualCount}}</td>
+    <td>{{planningDetail.mismatch}}</td>
+    <td>{{planningDetail.noOfAlerts}}</td>
+  </tr>
+</table>
+</div>
+
+ -->
+<h3 class="aa">Order Details Summary</h3>
+
+<label>Get Chart for year </label> &nbsp;<input type="text" [(ngModel)]="selectedYear" name="selectedYear" />
+<button (click)="getOrderChart()">Submit</button> 
+<div class="row">
+  <div class="col-md-6">
+    <p *ngIf="!startChart && selectedYear">No data</p>
+    <div *ngIf="startChart" style="display: block">
+      <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+        [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+</div>

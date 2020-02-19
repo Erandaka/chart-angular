@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~bootstrap/dist/css/bootstrap.css'; 
+
+.image{
+    /* height:100%; 
+    background-size:cover;
+    width:100%; */
+    background-image:url('./assets/images/background.jpg');
+    /* background-position:50% 50%; */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  }

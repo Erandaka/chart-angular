@@ -1,0 +1,50 @@
+<div class="d-plan">
+  <h3 class="aa">Daily Planning Summary</h3>
+  
+
+  
+ 
+  &nbsp;<dp-date-picker [(ngModel)]="newDate" [config]="datePickerConfig"></dp-date-picker>&nbsp;
+  <!-- <button (click)="getDailyChart()">Submit</button> -->
+
+  <button type="button" class="btn btn-primary" (click)="getDailyChart()">Submit</button>
+  <h3 *ngIf="noRecord">No records for this date</h3>
+
+  <!-- <div *ngIf="startChart"> -->
+  <div class="row">
+    <div class="col-md-7">
+      <div style="display: block;">
+        <canvas baseChart width="400" height="400" [datasets]="lineChartDataChart" [labels]="lineChartLabelsChart"
+          [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+          (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-12" style="margin-bottom: 10px">
+      <table class="table table-responsive table-condensed">
+        <tr>
+          <th *ngFor="let label of lineChartLabelsTable">{{label}}</th>
+        </tr>
+        <tr *ngFor="let d of lineChartDataTable">
+          <td *ngFor="let label of lineChartLabelsTable; let j=index">{{d && d.data[j]}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <label><strong><font color="green" (click)="csv()">Download by CSV</font></strong> </label>
+  <angular2csv [data]="data" filename="test.csv" [options]="options"></angular2csv>
+  <!-- </div> -->
+</div>

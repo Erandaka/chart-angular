@@ -1,0 +1,24 @@
+<button mat-raised-button color="primary" routerLink="/create">Add New Product</button>
+<br><br>
+<mat-divider></mat-divider>
+<div class="container"><table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product_Id</th>
+        <th>Product_Des</th>
+        <th>Product_Qty</th>
+        <th>Produce_Time</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let z of issues">        
+      <td>{{ z.Product_Id }}</td>
+      <td>{{ z.Product_Des }}</td>
+      <td>{{ z.Product_Qty }}</td>
+      <td>{{ z.Produce_Time }}</td>
+      <td class="mat-column-right">
+          <button mat-button color="primary" (click)="editIssue(z._id)">Edit</button>
+          <button mat-button color="warn" (click)="deleteIssue(z._id)">Delete</button>
+        </td>
+    </tr></tbody></table></div>
